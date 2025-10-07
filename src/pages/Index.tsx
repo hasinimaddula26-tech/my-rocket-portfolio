@@ -23,7 +23,17 @@ const Index = () => {
     { name: "C/C++", level: 80 },
     { name: "Mobile Dev", level: 92 },
     { name: "ML/AI", level: 85 },
-    { name: "DSA", level: 88 }
+    { name: "DSA", level: 88 },
+    { name: "Enterprise", level: 86 }
+  ];
+
+  const softSkills = [
+    "Leadership",
+    "Team Collaboration",
+    "Problem Solving",
+    "Communication",
+    "Time Management",
+    "Adaptability"
   ];
 
   const experience = [
@@ -41,7 +51,8 @@ const Index = () => {
     "Machine Learning Specialization",
     "Data Structures & Algorithms",
     "Python for Data Science",
-    "Cloud Computing Fundamentals"
+    "Cloud Computing Fundamentals",
+    "Elements of AI"
   ];
 
   return (
@@ -178,6 +189,26 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Soft Skills Section */}
+      <section className="py-20 px-6 relative">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+            <span className="text-gradient">Soft Skills</span>
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {softSkills.map((skill, index) => (
+              <Card 
+                key={skill}
+                className="glass glass-hover p-4 text-center animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <p className="font-semibold">{skill}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Education & Certifications */}
       <section className="py-20 px-6 relative">
         <div className="container mx-auto max-w-6xl">
@@ -189,7 +220,7 @@ const Index = () => {
                 <h2 className="text-3xl font-bold text-gradient">Education</h2>
               </div>
               <Card className="glass glass-hover p-6">
-                <h3 className="text-xl font-bold mb-2">B.Sc. Computer Science</h3>
+                <h3 className="text-xl font-bold mb-2">B.Tech Computer Science</h3>
                 <p className="text-primary font-semibold mb-2">Pragati Engineering College</p>
                 <p className="text-muted-foreground mb-4">2nd Year • CGPA: 9.5+</p>
                 <Badge className="bg-primary/20 text-primary border-primary/30">Top Performer</Badge>
@@ -230,7 +261,7 @@ const Index = () => {
           <div className="flex gap-4 justify-center flex-wrap">
             <Button size="lg" className="glow">
               <Mail className="w-5 h-5 mr-2" />
-              hasini.maddula@example.com
+              hasinimaddula26@gmail.com
             </Button>
             <Button size="lg" variant="outline" className="glass glass-hover">
               <Github className="w-5 h-5 mr-2" />
