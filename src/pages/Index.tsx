@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, Code2, Sparkles, Terminal, Award, GraduationCap, Briefcase, Instagram, Code } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, Sparkles, Terminal, Award, GraduationCap, Briefcase, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -150,7 +150,7 @@ const Index = () => {
 
           <div className="flex gap-4 justify-center mb-12">
             <Button size="lg" className="glow group" asChild>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/hasinimaddula26-tech" target="_blank" rel="noopener noreferrer">
                 <Code2 className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
                 View Projects
               </a>
@@ -163,38 +163,20 @@ const Index = () => {
             </Button>
           </div>
 
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
-              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <Instagram className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
-              <a href="https://leetcode.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
-                <Code className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
-              <a href="https://hackerrank.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="HackerRank">
-                <Code2 className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
-              <a href="https://geeksforgeeks.org/user/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="GeeksforGeeks">
-                <Terminal className="w-5 h-5" />
-              </a>
-            </Button>
-          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-6 relative">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+            <span className="text-gradient">About Me</span>
+          </h2>
+          <Card className="glass glass-hover p-8 animate-fade-in">
+            <p className="text-lg text-foreground/90 leading-relaxed">
+              I'm a second-year CSE student (CGPA 9.5+) with hands-on experience in C, Python, Java, and DSA. Currently interning as a Google Android App Developer, with a completed Google AIML Virtual Internship. I actively solve problems on LeetCode, HackerRank, and GeeksforGeeks, and I'm exploring enterprise tools like ServiceNow and Salesforce. As an NCC cadet, I've built strong discipline, teamwork, and leadership skills.
+            </p>
+          </Card>
         </div>
       </section>
 
@@ -365,7 +347,7 @@ const Index = () => {
               </a>
             </Button>
             <Button size="lg" variant="outline" className="glass glass-hover" asChild>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/hasinimaddula26-tech" target="_blank" rel="noopener noreferrer">
                 <Github className="w-5 h-5 mr-2" />
                 View GitHub
               </a>
@@ -383,40 +365,40 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-10 px-6 border-t border-border/50 glass">
         <div className="container mx-auto text-center">
-          <p className="mb-6 text-muted-foreground">© 2025 Maddula Hasini</p>
+          <p className="mb-6 text-muted-foreground">© Maddula Hasini</p>
           <div className="flex gap-4 justify-center flex-wrap mb-4">
             <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+              <a href="mailto:hasinimaddula26@gmail.com">
+                <Mail className="w-4 h-4" />
+                Email
+              </a>
+            </Button>
+            <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
+              <a href="https://github.com/hasinimaddula26-tech" target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
             </Button>
             <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/maddula-hasini-074274320" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="w-4 h-4" />
                 LinkedIn
               </a>
             </Button>
             <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
-              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
-                <Instagram className="w-4 h-4" />
-                Instagram
-              </a>
-            </Button>
-            <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
-              <a href="https://leetcode.com/yourprofile" target="_blank" rel="noopener noreferrer">
+              <a href="https://leetcode.com/u/Hasinimaddula/" target="_blank" rel="noopener noreferrer">
                 <Code className="w-4 h-4" />
                 LeetCode
               </a>
             </Button>
             <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
-              <a href="https://hackerrank.com/yourprofile" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.hackerrank.com/profile/hasinimaddula26" target="_blank" rel="noopener noreferrer">
                 <Code2 className="w-4 h-4" />
                 HackerRank
               </a>
             </Button>
             <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
-              <a href="https://geeksforgeeks.org/user/yourprofile" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.geeksforgeeks.org/user/hasinimawn4g/" target="_blank" rel="noopener noreferrer">
                 <Terminal className="w-4 h-4" />
                 GeeksforGeeks
               </a>
