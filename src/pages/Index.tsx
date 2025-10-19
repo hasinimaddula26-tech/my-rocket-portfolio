@@ -19,9 +19,7 @@ const Index = () => {
     { name: "Java", level: 90 },
     { name: "Python", level: 85 },
     { name: "Kotlin", level: 88 },
-    { name: "SQL", level: 82 },
     { name: "C/C++", level: 80 },
-    { name: "Mobile Dev", level: 92 },
     { name: "ML/AI", level: 85 },
     { name: "DSA", level: 88 },
     { name: "Enterprise", level: 86 }
@@ -40,9 +38,23 @@ const Index = () => {
     {
       title: "Android App Developer Intern",
       company: "Google",
-      period: "2024",
-      description: "Developed innovative Android applications focusing on AI/ML integration",
+      period: "Jul 2025",
+      description: "Developing and testing Android applications using Java and Kotlin. Implementing user-friendly UI/UX designs and collaborating on real-time project modules.",
       icon: <Briefcase className="w-5 h-5" />
+    },
+    {
+      title: "Google AIML Virtual Intern",
+      company: "Google",
+      period: "Sep 2024",
+      description: "Gained exposure to Artificial Intelligence and Machine Learning concepts. Completed tasks and projects, improved Python skills, and learned practical applications of ML in real-world scenarios.",
+      icon: <Briefcase className="w-5 h-5" />
+    }
+  ];
+
+  const workshops = [
+    {
+      title: "Application Development with AI & Essential Skills",
+      period: "Jun 2025"
     }
   ];
 
@@ -76,7 +88,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Terminal className="w-6 h-6 text-primary" />
-            <span className="font-bold text-xl">MH</span>
+            <span className="font-bold text-xl">Portfolio</span>
           </div>
           <div className="flex gap-6 items-center">
             <a href="#about" className="hover:text-primary transition-colors">About</a>
@@ -91,7 +103,7 @@ const Index = () => {
       <section className="min-h-screen flex items-center justify-center relative px-6 pt-20">
         <div className="container mx-auto text-center">
           <div className="inline-block mb-6">
-            <Badge className="glass px-4 py-2 text-sm animate-glow">
+            <Badge className="glow px-4 py-2 text-sm">
               <Sparkles className="w-4 h-4 mr-2 inline" />
               Available for Opportunities
             </Badge>
@@ -102,7 +114,7 @@ const Index = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto">
-            Android Developer • AI/ML Engineer • Problem Solver
+            Problem Solver • Innovator • Tech Enthusiast
           </p>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
@@ -110,25 +122,35 @@ const Index = () => {
           </p>
 
           <div className="flex gap-4 justify-center mb-12">
-            <Button size="lg" className="glow group">
-              <Code2 className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-              View Projects
+            <Button size="lg" className="glow group" asChild>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                <Code2 className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+                View Projects
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="glass glass-hover">
-              <Mail className="w-5 h-5 mr-2" />
-              Contact Me
+            <Button size="lg" variant="outline" className="glass glass-hover" asChild>
+              <a href="mailto:hasinimaddula26@gmail.com">
+                <Mail className="w-5 h-5 mr-2" />
+                Contact Me
+              </a>
             </Button>
           </div>
 
           <div className="flex gap-6 justify-center">
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full">
-              <Github className="w-5 h-5" />
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full" asChild>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                <Github className="w-5 h-5" />
+              </a>
             </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full">
-              <Linkedin className="w-5 h-5" />
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full" asChild>
+              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-5 h-5" />
+              </a>
             </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full">
-              <Mail className="w-5 h-5" />
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full" asChild>
+              <a href="mailto:hasinimaddula26@gmail.com">
+                <Mail className="w-5 h-5" />
+              </a>
             </Button>
           </div>
         </div>
@@ -138,7 +160,7 @@ const Index = () => {
       <section id="skills" className="py-20 px-6 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            <span className="text-gradient">Technical Arsenal</span>
+            <span className="text-gradient">Technical Skills</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -209,6 +231,27 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Workshops */}
+      <section className="py-20 px-6 relative">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+            <span className="text-gradient">Workshops & Training</span>
+          </h2>
+          <div className="space-y-4">
+            {workshops.map((workshop, index) => (
+              <Card 
+                key={index}
+                className="glass glass-hover p-6 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <h3 className="text-xl font-bold mb-2">{workshop.title}</h3>
+                <p className="text-muted-foreground">{workshop.period}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Education & Certifications */}
       <section className="py-20 px-6 relative">
         <div className="container mx-auto max-w-6xl">
@@ -259,13 +302,23 @@ const Index = () => {
             Open to internships, collaborations, and innovative projects
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="glow">
-              <Mail className="w-5 h-5 mr-2" />
-              hasinimaddula26@gmail.com
+            <Button size="lg" className="glow" asChild>
+              <a href="mailto:hasinimaddula26@gmail.com">
+                <Mail className="w-5 h-5 mr-2" />
+                hasinimaddula26@gmail.com
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="glass glass-hover">
-              <Github className="w-5 h-5 mr-2" />
-              View GitHub
+            <Button size="lg" variant="outline" className="glass glass-hover" asChild>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                <Github className="w-5 h-5 mr-2" />
+                View GitHub
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" className="glass glass-hover" asChild>
+              <a href="/resume_1.pdf" download="Maddula_Hasini_Resume.pdf">
+                <Code2 className="w-5 h-5 mr-2" />
+                Download CV
+              </a>
             </Button>
           </div>
         </div>
@@ -274,8 +327,27 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border/50 glass">
         <div className="container mx-auto text-center text-muted-foreground">
-          <p>© 2025 Maddula Hasini. Crafted with ❤️ and AI</p>
-          <p className="text-sm mt-2">NCC Cadet • LeetCode • HackerRank • GeeksforGeeks</p>
+          <p className="mb-4">© 2025 Maddula Hasini</p>
+          <div className="flex gap-4 justify-center flex-wrap text-sm">
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              LinkedIn
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              Instagram
+            </a>
+            <a href="https://leetcode.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              LeetCode
+            </a>
+            <a href="https://hackerrank.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              HackerRank
+            </a>
+            <a href="https://geeksforgeeks.org/user/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              GeeksforGeeks
+            </a>
+          </div>
         </div>
       </footer>
     </div>
