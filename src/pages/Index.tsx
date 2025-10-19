@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, Code2, Sparkles, Terminal, Award, GraduationCap, Briefcase } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, Sparkles, Terminal, Award, GraduationCap, Briefcase, Instagram, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -59,12 +59,39 @@ const Index = () => {
   ];
 
   const certifications = [
-    "Google Android Development",
-    "Machine Learning Specialization",
-    "Data Structures & Algorithms",
-    "Python for Data Science",
-    "Cloud Computing Fundamentals",
-    "Elements of AI"
+    { name: "GenAI Powered Data Analytics Job", org: "TATA", date: "Aug 2025" },
+    { name: "TCS ion Career Edge-Young Professional", org: "TCS ion", date: "Aug 2025" },
+    { name: "C Programming 101", org: "Infosys Springboard", date: "Jul 2025" },
+    { name: "Business Analysis & Process Management", org: "Coursera", date: "Jul 2025" },
+    { name: "Elements of AI", org: "MinnaLearn (University of Helsinki)", date: "Aug 2025" },
+    { name: "Introduction to Modern AI", org: "Cisco", date: "Jun 2025" },
+    { name: "Micro-Certification", org: "ServiceNow", date: "Jul 2025" },
+    { name: "Azure AI Fundamentals", org: "Microsoft", date: "Feb 2024" },
+    { name: "Prompt Engineering Application", org: "Simplilearn Skillup", date: "Jul 2025" }
+  ];
+
+  const education = [
+    {
+      degree: "B.Tech Computer Science",
+      institution: "Pragati Engineering College",
+      period: "2023 - 2028",
+      score: "CGPA: 9.55",
+      status: "2nd Year"
+    },
+    {
+      degree: "Intermediate (MPC)",
+      institution: "Pragati Vidyala College",
+      period: "2024",
+      score: "Percentage: 98%",
+      status: "Completed"
+    },
+    {
+      degree: "SSC",
+      institution: "Luthern EM School",
+      period: "2022",
+      score: "Percentage: 92%",
+      status: "Completed"
+    }
   ];
 
   return (
@@ -136,20 +163,35 @@ const Index = () => {
             </Button>
           </div>
 
-          <div className="flex gap-6 justify-center">
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full" asChild>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
             </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full" asChild>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
+              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
             </Button>
-            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full" asChild>
-              <a href="mailto:hasinimaddula26@gmail.com">
-                <Mail className="w-5 h-5" />
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
+              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
+              <a href="https://leetcode.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+                <Code className="w-5 h-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
+              <a href="https://hackerrank.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="HackerRank">
+                <Code2 className="w-5 h-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="glass glass-hover rounded-full glow-secondary" asChild>
+              <a href="https://geeksforgeeks.org/user/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="GeeksforGeeks">
+                <Terminal className="w-5 h-5" />
               </a>
             </Button>
           </div>
@@ -252,42 +294,56 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Education & Certifications */}
+      {/* Education */}
       <section className="py-20 px-6 relative">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Education */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <GraduationCap className="w-8 h-8 text-primary" />
-                <h2 className="text-3xl font-bold text-gradient">Education</h2>
-              </div>
-              <Card className="glass glass-hover p-6">
-                <h3 className="text-xl font-bold mb-2">B.Tech Computer Science</h3>
-                <p className="text-primary font-semibold mb-2">Pragati Engineering College</p>
-                <p className="text-muted-foreground mb-4">2nd Year • CGPA: 9.5+</p>
-                <Badge className="bg-primary/20 text-primary border-primary/30">Top Performer</Badge>
+        <div className="container mx-auto max-w-4xl">
+          <div className="flex items-center gap-3 mb-12 justify-center">
+            <GraduationCap className="w-8 h-8 text-primary" />
+            <h2 className="text-4xl md:text-5xl font-bold text-gradient">Education</h2>
+          </div>
+          <div className="space-y-4">
+            {education.map((edu, index) => (
+              <Card 
+                key={index}
+                className="glass glass-hover p-6 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex justify-between items-start flex-wrap gap-4">
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">{edu.degree}</h3>
+                    <p className="text-primary font-semibold mb-1">{edu.institution}</p>
+                    <p className="text-muted-foreground text-sm">{edu.period}</p>
+                  </div>
+                  <div className="text-right">
+                    <Badge className="bg-primary/20 text-primary border-primary/30 mb-2">{edu.status}</Badge>
+                    <p className="font-semibold">{edu.score}</p>
+                  </div>
+                </div>
               </Card>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Certifications */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <Award className="w-8 h-8 text-accent" />
-                <h2 className="text-3xl font-bold text-gradient">Certifications</h2>
-              </div>
-              <div className="space-y-3">
-                {certifications.map((cert, index) => (
-                  <Card 
-                    key={index} 
-                    className="glass glass-hover p-4 animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <p className="font-medium">{cert}</p>
-                  </Card>
-                ))}
-              </div>
-            </div>
+      {/* Certifications */}
+      <section className="py-20 px-6 relative">
+        <div className="container mx-auto max-w-4xl">
+          <div className="flex items-center gap-3 mb-12 justify-center">
+            <Award className="w-8 h-8 text-accent" />
+            <h2 className="text-4xl md:text-5xl font-bold text-gradient">Certifications</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {certifications.map((cert, index) => (
+              <Card 
+                key={index} 
+                className="glass glass-hover p-5 animate-fade-in"
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                <h3 className="font-bold mb-2">{cert.name}</h3>
+                <p className="text-sm text-primary mb-1">{cert.org}</p>
+                <p className="text-xs text-muted-foreground">{cert.date}</p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -325,28 +381,46 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border/50 glass">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <p className="mb-4">© 2025 Maddula Hasini</p>
-          <div className="flex gap-4 justify-center flex-wrap text-sm">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-              GitHub
-            </a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-              LinkedIn
-            </a>
-            <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-              Instagram
-            </a>
-            <a href="https://leetcode.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-              LeetCode
-            </a>
-            <a href="https://hackerrank.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-              HackerRank
-            </a>
-            <a href="https://geeksforgeeks.org/user/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-              GeeksforGeeks
-            </a>
+      <footer className="py-10 px-6 border-t border-border/50 glass">
+        <div className="container mx-auto text-center">
+          <p className="mb-6 text-muted-foreground">© 2025 Maddula Hasini</p>
+          <div className="flex gap-4 justify-center flex-wrap mb-4">
+            <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4" />
+                GitHub
+              </a>
+            </Button>
+            <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
+              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
+            </Button>
+            <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
+              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                <Instagram className="w-4 h-4" />
+                Instagram
+              </a>
+            </Button>
+            <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
+              <a href="https://leetcode.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                <Code className="w-4 h-4" />
+                LeetCode
+              </a>
+            </Button>
+            <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
+              <a href="https://hackerrank.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                <Code2 className="w-4 h-4" />
+                HackerRank
+              </a>
+            </Button>
+            <Button variant="ghost" size="sm" className="glass glass-hover gap-2" asChild>
+              <a href="https://geeksforgeeks.org/user/yourprofile" target="_blank" rel="noopener noreferrer">
+                <Terminal className="w-4 h-4" />
+                GeeksforGeeks
+              </a>
+            </Button>
           </div>
         </div>
       </footer>
