@@ -206,4 +206,101 @@ All colors MUST be HSL.
                 linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
     border: 2px solid transparent;
   }
+  
+  .bg-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .float-3d {
+    animation: float3d 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+  
+  @keyframes float3d {
+    0%, 100% {
+      transform: translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: translateY(-30px) translateZ(50px) rotateX(10deg) rotateY(10deg);
+    }
+    50% {
+      transform: translateY(-15px) translateZ(100px) rotateX(-10deg) rotateY(20deg);
+    }
+    75% {
+      transform: translateY(-30px) translateZ(50px) rotateX(10deg) rotateY(-10deg);
+    }
+  }
+  
+  .slide-from-left {
+    animation: slideFromLeft 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+  }
+  
+  @keyframes slideFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+  
+  .slide-from-right {
+    animation: slideFromRight 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+  }
+  
+  @keyframes slideFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+  
+  .scale-from-center {
+    animation: scaleFromCenter 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+  }
+  
+  @keyframes scaleFromCenter {
+    from {
+      opacity: 0;
+      transform: scale(0.3) rotate(-180deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .depth-layer-1 {
+    transform: translateZ(100px);
+  }
+  
+  .depth-layer-2 {
+    transform: translateZ(50px);
+  }
+  
+  .depth-layer-3 {
+    transform: translateZ(25px);
+  }
 }

@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, Code2, Sparkles, Terminal, Award, GraduationCap, Briefcase, Code } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Github, Linkedin, Mail, Code2, Sparkles, Terminal, Award, GraduationCap, Briefcase, Code, Users, MessageSquare, Lightbulb, Clock, Zap, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 
 const Index = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -13,6 +14,24 @@ const Index = () => {
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach((el) => observerRef.current?.observe(el));
+
+    return () => observerRef.current?.disconnect();
   }, []);
 
   const skills = [
@@ -26,12 +45,12 @@ const Index = () => {
   ];
 
   const softSkills = [
-    "Leadership",
-    "Team Collaboration",
-    "Problem Solving",
-    "Communication",
-    "Time Management",
-    "Adaptability"
+    { name: "Leadership", icon: <Users className="w-5 h-5" />, direction: "left" },
+    { name: "Communication", icon: <MessageSquare className="w-5 h-5" />, direction: "left" },
+    { name: "Problem Solving", icon: <Lightbulb className="w-5 h-5" />, direction: "right" },
+    { name: "Adaptability", icon: <Zap className="w-5 h-5" />, direction: "right" },
+    { name: "Team Collaboration", icon: <TrendingUp className="w-5 h-5" />, direction: "center" },
+    { name: "Time Management", icon: <Clock className="w-5 h-5" />, direction: "center" }
   ];
 
   const experience = [
@@ -55,6 +74,18 @@ const Index = () => {
     {
       title: "Application Development with AI & Essential Skills",
       period: "Jun 2025"
+    },
+    {
+      title: "Google AI Agents Workshop",
+      period: "2025"
+    },
+    {
+      title: "Outskill AI Master Workshop",
+      period: "2025"
+    },
+    {
+      title: "AI Tools Workshop by AICTE - Brainovision",
+      period: "2025"
     }
   ];
 
@@ -96,19 +127,27 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Animated Background with Grid Pattern */}
-      <div className="fixed inset-0 pointer-events-none bg-grid">
+      {/* 3D Animated Background */}
+      <div className="fixed inset-0 pointer-events-none bg-grid bg-3d overflow-hidden">
+        {/* Mouse-following gradient */}
         <div 
-          className="absolute w-[500px] h-[500px] rounded-full bg-primary/20 blur-[120px] animate-float"
+          className="absolute w-[500px] h-[500px] rounded-full bg-primary/20 blur-[120px] animate-float depth-layer-1"
           style={{
             left: `${mousePosition.x - 250}px`,
             top: `${mousePosition.y - 250}px`,
             transition: "all 0.3s ease-out"
           }}
         />
-        <div className="absolute top-20 right-20 w-[300px] h-[300px] rounded-full bg-accent/20 blur-[100px] animate-float" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-20 left-20 w-[400px] h-[400px] rounded-full bg-secondary/20 blur-[100px] animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[150px] animate-float" style={{ animationDelay: "3s" }} />
+        
+        {/* 3D Floating shapes */}
+        <div className="absolute top-20 right-20 w-[300px] h-[300px] rounded-full bg-accent/20 blur-[100px] float-3d depth-layer-2" style={{ animationDelay: "0s" }} />
+        <div className="absolute bottom-20 left-20 w-[400px] h-[400px] rounded-full bg-secondary/20 blur-[100px] float-3d depth-layer-1" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[150px] float-3d depth-layer-3" style={{ animationDelay: "4s" }} />
+        
+        {/* Additional 3D geometric shapes */}
+        <div className="absolute top-40 left-1/4 w-[200px] h-[200px] bg-gradient-to-br from-primary/30 to-accent/30 blur-[80px] rounded-full float-3d" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-40 right-1/4 w-[250px] h-[250px] bg-gradient-to-tl from-secondary/30 to-primary/30 blur-[90px] rounded-full float-3d" style={{ animationDelay: "3s" }} />
+        <div className="absolute top-1/3 right-1/3 w-[180px] h-[180px] bg-accent/20 blur-[70px] rounded-full float-3d" style={{ animationDelay: "5s" }} />
       </div>
 
       {/* Navigation */}
@@ -192,8 +231,8 @@ const Index = () => {
             {skills.map((skill, index) => (
               <Card 
                 key={skill.name}
-                className="glass glass-hover gradient-border p-6 card-3d animate-bounce-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="glass glass-hover gradient-border p-6 card-3d scroll-reveal"
+                style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <div className="flex justify-between items-center mb-4">
                   <span className="font-semibold text-lg">{skill.name}</span>
@@ -222,7 +261,7 @@ const Index = () => {
           </h2>
           
           {experience.map((exp, index) => (
-            <Card key={index} className="glass glass-hover gradient-border p-8 mb-6 card-3d slide-in-left" style={{ animationDelay: `${index * 0.2}s` }}>
+            <Card key={index} className="glass glass-hover gradient-border p-8 mb-6 card-3d scroll-reveal" style={{ transitionDelay: `${index * 0.2}s` }}>
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center pulse-glow">
                   {exp.icon}
@@ -246,15 +285,25 @@ const Index = () => {
             <span className="text-gradient">Soft Skills</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {softSkills.map((skill, index) => (
-              <Card 
-                key={skill}
-                className="glass glass-hover gradient-border p-4 text-center card-3d animate-scale-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <p className="font-semibold">{skill}</p>
-              </Card>
-            ))}
+            {softSkills.map((skill, index) => {
+              const animationClass = skill.direction === "left" ? "slide-from-left" : 
+                                     skill.direction === "right" ? "slide-from-right" : 
+                                     "scale-from-center";
+              return (
+                <Card 
+                  key={skill.name}
+                  className={`glass glass-hover gradient-border p-6 text-center card-3d ${animationClass}`}
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center pulse-glow">
+                      {skill.icon}
+                    </div>
+                    <p className="font-semibold text-lg">{skill.name}</p>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -269,8 +318,8 @@ const Index = () => {
             {workshops.map((workshop, index) => (
               <Card 
                 key={index}
-                className="glass glass-hover p-6 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="glass glass-hover gradient-border p-6 card-3d scroll-reveal"
+                style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <h3 className="text-xl font-bold mb-2">{workshop.title}</h3>
                 <p className="text-muted-foreground">{workshop.period}</p>
@@ -291,18 +340,18 @@ const Index = () => {
             {education.map((edu, index) => (
               <Card 
                 key={index}
-                className="glass glass-hover p-6 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="glass glass-hover gradient-border p-6 card-3d scroll-reveal"
+                style={{ transitionDelay: `${index * 0.15}s` }}
               >
                 <div className="flex justify-between items-start flex-wrap gap-4">
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{edu.degree}</h3>
-                    <p className="text-primary font-semibold mb-1">{edu.institution}</p>
-                    <p className="text-muted-foreground text-sm">{edu.period}</p>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-3 text-gradient">{edu.degree}</h3>
+                    <p className="text-primary font-semibold mb-2 text-lg">{edu.institution}</p>
+                    <p className="text-muted-foreground">{edu.period}</p>
                   </div>
                   <div className="text-right">
-                    <Badge className="bg-primary/20 text-primary border-primary/30 mb-2">{edu.status}</Badge>
-                    <p className="font-semibold">{edu.score}</p>
+                    <Badge className="bg-primary/20 text-primary border-primary/30 mb-3 text-sm px-3 py-1">{edu.status}</Badge>
+                    <p className="font-bold text-lg pulse-glow">{edu.score}</p>
                   </div>
                 </div>
               </Card>
@@ -322,8 +371,8 @@ const Index = () => {
             {certifications.map((cert, index) => (
               <Card 
                 key={index} 
-                className="glass glass-hover gradient-border p-5 card-3d animate-bounce-in"
-                style={{ animationDelay: `${index * 0.05}s` }}
+                className="glass glass-hover gradient-border p-5 card-3d scroll-reveal"
+                style={{ transitionDelay: `${index * 0.05}s` }}
               >
                 <h3 className="font-bold mb-2">{cert.name}</h3>
                 <p className="text-sm text-primary mb-1">{cert.org}</p>
