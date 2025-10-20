@@ -96,8 +96,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 pointer-events-none">
+      {/* Animated Background with Grid Pattern */}
+      <div className="fixed inset-0 pointer-events-none bg-grid">
         <div 
           className="absolute w-[500px] h-[500px] rounded-full bg-primary/20 blur-[120px] animate-float"
           style={{
@@ -108,6 +108,7 @@ const Index = () => {
         />
         <div className="absolute top-20 right-20 w-[300px] h-[300px] rounded-full bg-accent/20 blur-[100px] animate-float" style={{ animationDelay: "1s" }} />
         <div className="absolute bottom-20 left-20 w-[400px] h-[400px] rounded-full bg-secondary/20 blur-[100px] animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[150px] animate-float" style={{ animationDelay: "3s" }} />
       </div>
 
       {/* Navigation */}
@@ -136,28 +137,28 @@ const Index = () => {
             </Badge>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 slide-up" style={{ animationDelay: "0.1s" }}>
             <span className="text-gradient">Maddula Hasini</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto slide-up" style={{ animationDelay: "0.2s" }}>
             Problem Solver • Innovator • Tech Enthusiast
           </p>
           
-          <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto slide-up" style={{ animationDelay: "0.3s" }}>
             Google Intern | 2nd Year CSE @ Pragati Engineering College | 9.5+ CGPA
           </p>
 
-          <div className="flex gap-4 justify-center mb-12">
-            <Button size="lg" className="glow group" asChild>
+          <div className="flex gap-4 justify-center mb-12 slide-up" style={{ animationDelay: "0.4s" }}>
+            <Button size="lg" className="pulse-glow group" asChild>
               <a href="https://github.com/hasinimaddula26-tech" target="_blank" rel="noopener noreferrer">
                 <Code2 className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
                 View Projects
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="glass glass-hover" asChild>
+            <Button size="lg" variant="outline" className="glass glass-hover group" asChild>
               <a href="mailto:hasinimaddula26@gmail.com">
-                <Mail className="w-5 h-5 mr-2" />
+                <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Contact Me
               </a>
             </Button>
@@ -169,10 +170,10 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 px-6 relative">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 slide-up">
             <span className="text-gradient">About Me</span>
           </h2>
-          <Card className="glass glass-hover p-8 animate-fade-in">
+          <Card className="glass glass-hover gradient-border p-8 card-3d slide-up" style={{ animationDelay: "0.2s" }}>
             <p className="text-lg text-foreground/90 leading-relaxed">
               I'm a second-year CSE student (CGPA 9.5+) with hands-on experience in C, Python, Java, and DSA. Currently interning as a Google Android App Developer, with a completed Google AIML Virtual Internship. I actively solve problems on LeetCode, HackerRank, and GeeksforGeeks, and I'm exploring enterprise tools like ServiceNow and Salesforce. As an NCC cadet, I've built strong discipline, teamwork, and leadership skills.
             </p>
@@ -181,9 +182,9 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6 relative">
+      <section id="skills" className="py-20 px-6 relative bg-dots">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 slide-up">
             <span className="text-gradient">Technical Skills</span>
           </h2>
           
@@ -191,17 +192,20 @@ const Index = () => {
             {skills.map((skill, index) => (
               <Card 
                 key={skill.name}
-                className="glass glass-hover p-6 animate-fade-in"
+                className="glass glass-hover gradient-border p-6 card-3d animate-bounce-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex justify-between items-center mb-4">
                   <span className="font-semibold text-lg">{skill.name}</span>
-                  <span className="text-primary font-bold">{skill.level}%</span>
+                  <span className="text-primary font-bold pulse-glow px-2 py-1 rounded">{skill.level}%</span>
                 </div>
                 <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                   <div 
-                    className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000"
-                    style={{ width: `${skill.level}%` }}
+                    className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 animate-shimmer"
+                    style={{ 
+                      width: `${skill.level}%`,
+                      backgroundSize: "200% 100%"
+                    }}
                   />
                 </div>
               </Card>
@@ -213,14 +217,14 @@ const Index = () => {
       {/* Experience Section */}
       <section id="experience" className="py-20 px-6 relative">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 rotate-in">
             <span className="text-gradient">Experience</span>
           </h2>
           
           {experience.map((exp, index) => (
-            <Card key={index} className="glass glass-hover p-8 mb-6 animate-fade-in">
+            <Card key={index} className="glass glass-hover gradient-border p-8 mb-6 card-3d slide-in-left" style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center glow">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center pulse-glow">
                   {exp.icon}
                 </div>
                 <div className="flex-1">
@@ -236,16 +240,16 @@ const Index = () => {
       </section>
 
       {/* Soft Skills Section */}
-      <section className="py-20 px-6 relative">
+      <section className="py-20 px-6 relative bg-dots">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 slide-up">
             <span className="text-gradient">Soft Skills</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {softSkills.map((skill, index) => (
               <Card 
                 key={skill}
-                className="glass glass-hover p-4 text-center animate-fade-in"
+                className="glass glass-hover gradient-border p-4 text-center card-3d animate-scale-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <p className="font-semibold">{skill}</p>
@@ -308,17 +312,17 @@ const Index = () => {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 px-6 relative">
+      <section className="py-20 px-6 relative bg-dots">
         <div className="container mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-12 justify-center">
-            <Award className="w-8 h-8 text-accent" />
+          <div className="flex items-center gap-3 mb-12 justify-center rotate-in">
+            <Award className="w-8 h-8 text-accent pulse-glow" />
             <h2 className="text-4xl md:text-5xl font-bold text-gradient">Certifications</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             {certifications.map((cert, index) => (
               <Card 
                 key={index} 
-                className="glass glass-hover p-5 animate-fade-in"
+                className="glass glass-hover gradient-border p-5 card-3d animate-bounce-in"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <h3 className="font-bold mb-2">{cert.name}</h3>
@@ -333,26 +337,26 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 relative">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 slide-up">
             <span className="text-gradient">Let's Build Something Amazing</span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-12">
+          <p className="text-xl text-muted-foreground mb-12 slide-up" style={{ animationDelay: "0.2s" }}>
             Open to internships, collaborations, and innovative projects
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="glow" asChild>
+            <Button size="lg" className="pulse-glow animate-bounce-in" asChild style={{ animationDelay: "0.3s" }}>
               <a href="mailto:hasinimaddula26@gmail.com">
                 <Mail className="w-5 h-5 mr-2" />
                 hasinimaddula26@gmail.com
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="glass glass-hover" asChild>
+            <Button size="lg" variant="outline" className="glass glass-hover card-3d animate-bounce-in" asChild style={{ animationDelay: "0.4s" }}>
               <a href="https://github.com/hasinimaddula26-tech" target="_blank" rel="noopener noreferrer">
                 <Github className="w-5 h-5 mr-2" />
                 View GitHub
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="glass glass-hover" asChild>
+            <Button size="lg" variant="outline" className="glass glass-hover card-3d animate-bounce-in" asChild style={{ animationDelay: "0.5s" }}>
               <a href="/resume_1.pdf" download="Maddula_Hasini_Resume.pdf">
                 <Code2 className="w-5 h-5 mr-2" />
                 Download CV
