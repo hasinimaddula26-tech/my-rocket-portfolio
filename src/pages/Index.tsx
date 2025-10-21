@@ -268,7 +268,7 @@ const Index = () => {
       {/* About Section with Cinematic Reveal */}
       <section 
         id="about" 
-        className="py-20 px-6 relative parallax-medium"
+        className="py-32 px-6 relative parallax-medium mb-20"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
         <div className="container mx-auto max-w-4xl">
@@ -286,7 +286,7 @@ const Index = () => {
       {/* Skills Section with Zoom In */}
       <section 
         id="skills" 
-        className="py-20 px-6 relative bg-dots parallax-medium"
+        className="py-32 px-6 relative bg-dots parallax-medium mb-20"
         style={{ transform: `translateY(${scrollY * 0.2}px)` }}
       >
         <div className="container mx-auto">
@@ -323,7 +323,7 @@ const Index = () => {
       {/* Experience Section with Cinematic Cards */}
       <section 
         id="experience" 
-        className="py-20 px-6 relative parallax-fast"
+        className="py-32 px-6 relative parallax-fast mb-20"
         style={{ transform: `translateY(${scrollY * 0.15}px)` }}
       >
         <div className="container mx-auto max-w-4xl">
@@ -355,7 +355,7 @@ const Index = () => {
 
       {/* Soft Skills Section with Directional Animations */}
       <section 
-        className="py-20 px-6 relative bg-dots parallax-medium"
+        className="py-32 px-6 relative bg-dots parallax-medium mb-20"
         style={{ transform: `translateY(${scrollY * 0.25}px)` }}
       >
         <div className="container mx-auto max-w-4xl">
@@ -388,7 +388,7 @@ const Index = () => {
 
       {/* Workshops with Zoom Effects */}
       <section 
-        className="py-20 px-6 relative parallax-slow"
+        className="py-32 px-6 relative parallax-slow mb-32"
         style={{ transform: `translateY(${scrollY * 0.2}px)` }}
       >
         <div className="container mx-auto max-w-4xl">
@@ -412,7 +412,7 @@ const Index = () => {
 
       {/* Education with Enhanced Effects */}
       <section 
-        className="py-20 px-6 relative parallax-fast"
+        className="py-32 px-6 relative parallax-fast mb-32"
         style={{ transform: `translateY(${scrollY * 0.1}px)` }}
       >
         <div className="container mx-auto max-w-4xl">
@@ -446,7 +446,7 @@ const Index = () => {
 
       {/* Certifications with Staggered Zoom */}
       <section 
-        className="py-20 px-6 relative bg-dots parallax-medium"
+        className="py-32 px-6 relative bg-dots parallax-medium mb-32"
         style={{ transform: `translateY(${scrollY * 0.18}px)` }}
       >
         <div className="container mx-auto max-w-4xl">
@@ -473,7 +473,7 @@ const Index = () => {
       {/* Contact Section with Cinematic Finale */}
       <section 
         id="contact" 
-        className="py-20 px-6 relative parallax-slow"
+        className="py-32 px-6 relative parallax-slow mb-20"
         style={{ transform: `translateY(${scrollY * 0.15}px)` }}
       >
         <div className="container mx-auto max-w-4xl text-center">
