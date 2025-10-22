@@ -161,12 +161,12 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 px-6 relative mb-20">
+      <section id="about" className="py-12 px-6 relative mb-8">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 slide-up">
             <span className="text-gradient">About Me</span>
           </h2>
-          <Card className="glass border border-border/40 p-8">
+          <Card className="glass border border-border/40 p-8 card-3d hover-pop">
             <p className="text-lg text-foreground/90 leading-relaxed">
               I'm a second-year CSE student (CGPA 9.5+) with hands-on experience in C, Python, Java, and DSA. Currently interning as a Google Android App Developer, with a completed Google AIML Virtual Internship. I actively solve problems on LeetCode, HackerRank, and GeeksforGeeks, and I'm exploring enterprise tools like ServiceNow and Salesforce. As an NCC cadet, I've built strong discipline, teamwork, and leadership skills.
             </p>
@@ -175,18 +175,18 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 px-6 relative bg-dots mb-20">
+      <section id="skills" className="py-12 px-6 relative bg-dots mb-8">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 slide-in-left">
             <span className="text-gradient">Technical Skills</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {skills.map((skill) => (
-              <Card key={skill.name} className="glass border border-border/40 p-6">
+            {skills.map((skill, index) => (
+              <Card key={skill.name} className="glass border border-border/40 p-6 card-3d zoom-hover" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="flex justify-between items-center mb-4">
                   <span className="font-semibold text-lg">{skill.name}</span>
-                  <span className="text-primary font-bold px-3 py-1 rounded-lg glass">{skill.level}%</span>
+                  <span className="text-primary font-bold px-3 py-1 rounded-lg glass pulse-glow">{skill.level}%</span>
                 </div>
                 <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                   <div 
@@ -201,16 +201,16 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-32 px-6 relative mb-20">
+      <section id="experience" className="py-12 px-6 relative mb-8">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 slide-in-right">
             <span className="text-gradient">Experience</span>
           </h2>
           
           {experience.map((exp, index) => (
-            <Card key={index} className="glass border border-border/40 p-8 mb-6">
+            <Card key={index} className="glass border border-border/40 p-8 mb-6 card-3d hover-pop slide-from-left" style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full glass flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full glass flex items-center justify-center animate-float">
                   {exp.icon}
                 </div>
                 <div className="flex-1">
@@ -226,16 +226,16 @@ const Index = () => {
       </section>
 
       {/* Soft Skills Section */}
-      <section className="py-32 px-6 relative bg-dots mb-20">
+      <section className="py-12 px-6 relative bg-dots mb-8">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 rotate-in">
             <span className="text-gradient">Soft Skills</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {softSkills.map((skill) => (
-              <Card key={skill.name} className="glass border border-border/40 p-6 text-center">
+            {softSkills.map((skill, index) => (
+              <Card key={skill.name} className="glass border border-border/40 p-6 text-center card-3d hover-pop scale-from-center" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 rounded-full glass flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full glass flex items-center justify-center floating-icon">
                     {skill.icon}
                   </div>
                   <p className="font-semibold text-lg">{skill.name}</p>
@@ -247,14 +247,14 @@ const Index = () => {
       </section>
 
       {/* Workshops */}
-      <section className="py-32 px-6 relative mb-32">
+      <section className="py-12 px-6 relative mb-12">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 slide-up">
             <span className="text-gradient">Workshops & Training</span>
           </h2>
           <div className="space-y-4">
             {workshops.map((workshop, index) => (
-              <Card key={index} className="glass border border-border/40 p-6">
+              <Card key={index} className="glass border border-border/40 p-6 card-3d zoom-hover slide-from-right" style={{ animationDelay: `${index * 0.15}s` }}>
                 <h3 className="text-xl font-bold mb-2 text-gradient">{workshop.title}</h3>
                 <p className="text-muted-foreground">{workshop.period}</p>
               </Card>
@@ -264,15 +264,15 @@ const Index = () => {
       </section>
 
       {/* Education */}
-      <section className="py-32 px-6 relative mb-32">
+      <section className="py-12 px-6 relative mb-12">
         <div className="container mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-12 justify-center">
-            <GraduationCap className="w-8 h-8 text-primary" />
+          <div className="flex items-center gap-3 mb-12 justify-center slide-in-left">
+            <GraduationCap className="w-8 h-8 text-primary animate-float" />
             <h2 className="text-4xl md:text-5xl font-bold text-gradient">Education</h2>
           </div>
           <div className="space-y-4">
             {education.map((edu, index) => (
-              <Card key={index} className="glass border border-border/40 p-6">
+              <Card key={index} className="glass border border-border/40 p-6 card-3d hover-pop slide-from-left" style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="flex justify-between items-start flex-wrap gap-4">
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold mb-3 text-gradient">{edu.degree}</h3>
@@ -280,7 +280,7 @@ const Index = () => {
                     <p className="text-muted-foreground">{edu.period}</p>
                   </div>
                   <div className="text-right">
-                    <Badge className="glass border-primary/30 mb-3 text-sm px-3 py-1">{edu.status}</Badge>
+                    <Badge className="glass border-primary/30 mb-3 text-sm px-3 py-1 animate-glow">{edu.status}</Badge>
                     <p className="font-bold text-lg">{edu.score}</p>
                   </div>
                 </div>
@@ -291,15 +291,15 @@ const Index = () => {
       </section>
 
       {/* Certifications */}
-      <section className="py-32 px-6 relative bg-dots mb-32">
+      <section className="py-12 px-6 relative bg-dots mb-12">
         <div className="container mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-12 justify-center">
-            <Award className="w-8 h-8 text-accent" />
+          <div className="flex items-center gap-3 mb-12 justify-center slide-in-right">
+            <Award className="w-8 h-8 text-accent floating-icon" />
             <h2 className="text-4xl md:text-5xl font-bold text-gradient">Certifications</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             {certifications.map((cert, index) => (
-              <Card key={index} className="glass border border-border/40 p-5">
+              <Card key={index} className="glass border border-border/40 p-5 card-3d zoom-hover scale-from-center" style={{ animationDelay: `${index * 0.1}s` }}>
                 <h3 className="font-bold mb-2 text-gradient">{cert.name}</h3>
                 <p className="text-sm text-primary mb-1">{cert.org}</p>
                 <p className="text-xs text-muted-foreground">{cert.date}</p>
@@ -310,28 +310,28 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 px-6 relative mb-20">
+      <section id="contact" className="py-12 px-6 relative mb-8">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 slide-up">
             <span className="text-gradient">Let's Build Something Amazing</span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-12">
+          <p className="text-xl text-muted-foreground mb-12 slide-in-left">
             Open to internships, collaborations, and innovative projects
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" asChild>
+            <Button size="lg" className="hover-pop pulse-glow" asChild>
               <a href="mailto:hasinimaddula26@gmail.com">
                 <Mail className="w-5 h-5 mr-2" />
                 hasinimaddula26@gmail.com
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="glass" asChild>
+            <Button size="lg" variant="outline" className="glass card-3d" asChild>
               <a href="https://github.com/hasinimaddula26-tech" target="_blank" rel="noopener noreferrer">
                 <Github className="w-5 h-5 mr-2" />
                 View GitHub
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="glass" asChild>
+            <Button size="lg" variant="outline" className="glass card-3d" asChild>
               <a href="/resume.pdf" download="Maddula_Hasini_Resume.pdf">
                 <Code2 className="w-5 h-5 mr-2" />
                 Download CV
