@@ -332,7 +332,7 @@ const Index = () => {
               </a>
             </Button>
             <Button size="lg" variant="outline" className="glass" asChild>
-              <a href="/resume_1.pdf" download="Maddula_Hasini_Resume.pdf">
+              <a href="/resume.pdf" download="Maddula_Hasini_Resume.pdf">
                 <Code2 className="w-5 h-5 mr-2" />
                 Download CV
               </a>
